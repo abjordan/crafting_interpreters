@@ -1,0 +1,19 @@
+var testName;
+
+/* This is a test to see if block comments work */
+
+var somethingElse;
+
+/* Test to see if multi-line
+   works like we expect */
+
+var yetAgain;
+
+/* Now something weird: /* nested comments */ might work */
+
+var lastTime;
+
+/* 
+   Block comment with 
+   // var commentedOutCode;
+*/

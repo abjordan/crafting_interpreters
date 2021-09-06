@@ -84,6 +84,23 @@ class Scanner {
                 if (match('/')) {
                     // Comment runs to the end of the line
                     while (peek() != '\n' && !isAtEnd()) advance();
+                } else if (match('*')) {
+                    int commentDepth = 1;
+                    while (commentDepth > 0) {
+                        if (isAtEnd()) {
+                            Lox.error(line, "Reached end of file in block comment");
+                            break;
+                        } else if ((peek() == '/') && (peekNext() == '*')) {
+                            advance(); // consume the *
+                            advance(); // consume the /
+                            commentDepth += 1;
+                        } else if ((peek() == '*') && (peekNext() == '/')) {
+                            advance(); advance();
+                            commentDepth -= 1;
+                        } else {
+                            advance();
+                        }
+                    }
                 } else {
                     addToken(SLASH);
                 }
