@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+if [[ $# -eq 1 ]]; then
+    INFILE="$(readlink -f $1)"
+    echo $INFILE
+fi
+
+pushd ${SCRIPT_DIR}/target/classes 2>&1 > /dev/null
+java com.gojordans.jlox.Lox $INFILE  
+popd 2>&1 > /dev/null
