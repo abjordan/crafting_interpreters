@@ -70,13 +70,14 @@ class Interpreter implements Expr.Visitor<Object> {
                 if (left instanceof Double && right instanceof Double) {
                     return (double)left + (double)right;
                 }
-
-                if (left instanceof String && right instanceof String) {
-                    return (String)left + (String)right;
+                // Automatically convert to string concat if either is a string
+                if (left instanceof String || right instanceof String) {
+                    return stringify(left) + stringify(right);
                 }
-                throw new RuntimeError(expr.operator, "Operands must be two numbers or two strings.");
+                throw new RuntimeError(expr.operator, "Operands must be two numbers or one or more strings.");
             case SLASH:
                 checkNumberOperands(expr.operator, left, right);
+                if ((double)right == 0) throw new RuntimeError(expr.operator, "Divide by zero."); 
                 return (double)left / (double)right;
             case STAR:
                 checkNumberOperands(expr.operator, left, right);
