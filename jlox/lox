@@ -4,7 +4,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 if [[ $# -eq 1 ]]; then
     INFILE="$(readlink -f $1)"
-    echo $INFILE
+    #echo $INFILE
 fi
 
 pushd ${SCRIPT_DIR}/target/classes 2>&1 > /dev/null
