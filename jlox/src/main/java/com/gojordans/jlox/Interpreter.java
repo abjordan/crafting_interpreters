@@ -101,6 +101,8 @@ class Interpreter implements Expr.Visitor<Object>,
             case MINUS:
                 checkNumberOperand(expr.operator, right);
                 return -(double)right;
+            default:
+                break;
         }
 
         // Unreachable
@@ -148,6 +150,8 @@ class Interpreter implements Expr.Visitor<Object>,
             case STAR:
                 checkNumberOperands(expr.operator, left, right);
                 return (double)left * (double)right;
+            default:
+                break;
         }
 
         // Unreachable
