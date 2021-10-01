@@ -1,8 +1,10 @@
 package com.gojordans.jlox;
 
+import com.gojordans.jlox.Expr.Assign;
 import com.gojordans.jlox.Expr.Grouping;
 import com.gojordans.jlox.Expr.Literal;
 import com.gojordans.jlox.Expr.Unary;
+import com.gojordans.jlox.Expr.Variable;
 
 public class AstPrinter implements Expr.Visitor<String> {
     String print(Expr expr) {
@@ -28,6 +30,18 @@ public class AstPrinter implements Expr.Visitor<String> {
     @Override
     public String visitUnaryExpr(Unary expr) {
         return parenthesize(expr.operator.lexeme, expr.right);
+    }
+
+    @Override
+    public String visitVariableExpr(Variable expr) {
+        // TODO Auto-generated method stub
+        return "VAR";
+    }
+
+    @Override
+    public String visitAssignExpr(Assign expr) {
+        // TODO Auto-generated method stub
+        return "ASSIGN";
     }
 
     private String parenthesize(String name, Expr... exprs) {
