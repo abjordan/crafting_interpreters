@@ -3,6 +3,7 @@ package com.gojordans.jlox;
 import com.gojordans.jlox.Expr.Assign;
 import com.gojordans.jlox.Expr.Grouping;
 import com.gojordans.jlox.Expr.Literal;
+import com.gojordans.jlox.Expr.Logical;
 import com.gojordans.jlox.Expr.Unary;
 import com.gojordans.jlox.Expr.Variable;
 
@@ -66,5 +67,11 @@ public class AstPrinter implements Expr.Visitor<String> {
                 new Expr.Literal(45.67)));
 
         System.out.println(new AstPrinter().print(expression));
+    }
+
+    @Override
+    public String visitLogicalExpr(Logical expr) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
