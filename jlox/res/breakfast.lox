@@ -1,0 +1,15 @@
+class Breakfast {
+    cook() {
+        print "Eggs a-fryin'!";
+    }
+
+    serve(who) {
+        print "Enjoy your breakfast, " + who + ".";
+    }
+}
+
+
+var bfast = Breakfast();
+
+bfast.who = "Alex";
+print bfast.who;
