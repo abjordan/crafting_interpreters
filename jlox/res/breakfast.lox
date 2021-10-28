@@ -11,5 +11,7 @@ class Breakfast {
 
 var bfast = Breakfast();
 
-bfast.who = "Alex";
-print bfast.who;
+bfast.serve("Alex");
+
+var m = bfast.serve;
+m("Bound method");

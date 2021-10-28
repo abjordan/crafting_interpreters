@@ -6,6 +6,7 @@ import com.gojordans.jlox.Expr.Grouping;
 import com.gojordans.jlox.Expr.Literal;
 import com.gojordans.jlox.Expr.Logical;
 import com.gojordans.jlox.Expr.Set;
+import com.gojordans.jlox.Expr.This;
 import com.gojordans.jlox.Expr.Unary;
 import com.gojordans.jlox.Expr.Variable;
 
@@ -91,6 +92,12 @@ public class AstPrinter implements Expr.Visitor<String> {
 
     @Override
     public String visitSetExpr(Set expr) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public String visitThisExpr(This expr) {
         // TODO Auto-generated method stub
         return null;
     }
