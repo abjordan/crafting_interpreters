@@ -1,0 +1,32 @@
+fun constructor(x, y) {
+
+	var _x = x;
+	var _y = y;
+
+	var i = 0;
+
+	fun getter(name) {
+		if (name == "x") {
+			return _x;
+		} else {
+			return _y;
+		}
+	}
+
+	return getter;
+}
+
+fun addition(one, two) {
+
+	var res_x = one("x") + two("x");
+	var res_y = one("y") + two("y");
+	return constructor(res_x, res_y);
+}
+
+var one = constructor(45, 90);
+var two = constructor(80, 80);
+
+var sum = addition(one, two);
+
+print(sum("x"));
+print(sum("y"));
